@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         val boton = findViewById<Button>(R.id.boton)
 
-        // Toast.makeText(this, nombre, Toast.LENGTH_LONG).show()
+        Toast.makeText(this, nombre, Toast.LENGTH_LONG).show()
 
         boton.setOnClickListener {
             nombre = "Juan"
@@ -36,5 +36,20 @@ class MainActivity : AppCompatActivity() {
 
         nombre = savedInstanceState?.getString(NOMBRE)!!
         Toast.makeText(this, nombre, Toast.LENGTH_LONG).show()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Toast.makeText(this, "En transición", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Toast.makeText(this, "Aplicativo oculto", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Toast.makeText(this, "Aplicativo visible", Toast.LENGTH_LONG).show()
     }
 }
